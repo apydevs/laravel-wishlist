@@ -82,7 +82,11 @@ trait HasWishlists
             ->where('user_id', $this->id)
             ->where('collection_name', $collectionName)
             ->get();
-
+        
+            if(!$items){
+                return [];
+            }
+        
         return $this->wishResponse($items);
     }
 
